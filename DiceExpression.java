@@ -5,8 +5,10 @@ public class DiceExpression {
         this.expression = expression.trim(); // Trim the input string
     }
 
-    public boolean validate(String input){
-
+    public void validate(String input){
+        String validationRegex = "^(\\d+d(2|3|4|6|8|10|12|20|100))(\\s*([-+*])\\s*((\\d*\\.\\d+)|\\d+d(2|3|4|6|8|10|12|20|100)|\\d+))*$";
+        if(!input.matches(validationRegex))
+            throw new RuntimeException("Input not valid");
     }
 
     public int evaluateDiceValue(String diceInput){
