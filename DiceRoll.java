@@ -1,9 +1,23 @@
+import java.util.Random;
+import java.util.stream.IntStream;
+
 public class DiceRoll {
 
+    private int numOfRolls;
+    private int sides;
+
+    public DiceRoll(int numOfRolls, int sides) {
+        this.numOfRolls = numOfRolls;
+        this.sides = sides;
+    }
+
     // Static method to roll a die with a specified number of sides
-    public static int roll(int sides) {
-        // Implement dice rolling logic
-        return -1;
+    public int roll() {
+        Random rnd = new Random();
+        return IntStream
+                .range(0, numOfRolls)
+                .map(rnd::nextInt)
+                .sum();
     }
 
 }
