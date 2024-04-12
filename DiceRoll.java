@@ -16,7 +16,7 @@ public class DiceRoll {
         Random rnd = new Random();
         return IntStream
                 .range(0, numOfRolls)
-                .map(rnd::nextInt)
+                .map(sides -> rnd.nextInt(sides))
                 .sum();
     }
 
